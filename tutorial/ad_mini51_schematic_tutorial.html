@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>51最小系统原理图绘制</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/gifplayer.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+<style>
+/* Custom Styles */
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+   <div class="jumbotron">
+        <h1>51最小系统原理图绘制</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.绘制元件库</a></li>
+                <li><a href="#section-3">3.绘制原理图</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+			<h2 id="section-0">0.说明</h2>
+            <p>通过绘制51系列单片机最小系统原理图，了解Altium Designer的使用方法和使用步骤。</p>
+            <hr>
+            <h2 id="section-1">1.准备</h2>
+            <p>1.按《<a href="altium_designer_install_tutorial.html">Altium Designer安装说明</a>》中的步骤，安装好Altium Designer。<br>
+			2.下载51单片机数据手册，推荐Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51">AT89S51产品页</a>下载<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf">AT89S51数据手册(DataSheet)</a>，以备查阅。</p>
+            <hr>
+            <h2 id="section-2">2.绘制元件库</h2>
+            <p>1.a)打开Altium Designer 软件；b)新建pcb工程，点击File--New--Project--PCB Project;c)添加元件库，点击File--New--Library--Schematic Library。d)保存全部，点击File-Save All。<br>
+			<img src="res/pic/sch_tutorial_pic1.png" data-gif="res/pic/sch_tutorial_pic1.gif" class="gifs" alt=""/><br>
+			2.切换视图到元件库。<br>
+			<img src="res/pic/sch_tutorial_pic2.png" alt=""/><br>
+			3.a)新建元器件，点击Tool--Rename Component，将名称命名为8951;b)放置元器件框图，点击Place--Rectangle，放置一个矩形。<br>
+			<img src="res/pic/sch_tutorial_pic3.png" data-gif="res/pic/sch_tutorial_pic3.gif" class="gifs" alt=""/><br>
+			4.a)放置引脚，点击Place Pin，放置引脚。b)按照51单片机数据手册的要求，将单片机管脚位号和名称标出。<br>
+			<img src="res/pic/sch_tutorial_pic4.png" alt=""/><br>
+			<img src="res/pic/sch_tutorial_pic5.png" data-gif="res/pic/sch_tutorial_pic5.gif" class="gifs" alt=""/><br>
+			a)名称字母上方若需上划线，则在字母后加字符“\”。b)快捷键：X--放置元件时，左右翻转；Y--放置元件时，上下翻转;Space--将选中的物体旋转90°。<br>
+			5.设置属性，点击Tool--Component Properties...，设置默认位号为U?,默认描述为8951。<br>
+			<img src="res/pic/sch_tutorial_pic6.png" data-gif="res/pic/sch_tutorial_pic6.gif" class="gifs" alt=""/><br>
+			6.打开库视图，点击View--Workspace panels--System--Libraries。可以看到已经绘制的51单片机元件图，参考如下。
+			<img src="" alt=""/><br>
+			</p>
+            <hr>
+            <h2 id="section-3">3.绘制原理图</h2>
+            <p>1.a)添加原理图。点击File--New--Schematic;b)在Library视图中，将刚才绘制的51单片机元件图，拖放到原理图中。<br>
+			<img src="res/pic/sch_tutorial_pic7.png" data-gif="res/pic/sch_tutorial_pic7.gif" class="gifs" alt=""/><br>
+			2.一些常用的元器件，已保存在系统元件库中：<br>i.电阻：Miscellaneous Devices.IntLib -- Res1<br>ii.电容：Miscellaneous Devices.IntLib -- Cap<br>iii.晶振：Miscellaneous Devices.IntLib -- XTAL<br>iv.Led：Miscellaneous Devices.IntLib -- LED0<br>
+			<img src="" alt=""/><br>
+			3.摆放好元器件。参考如图。<br>
+			<img src="" alt=""/><br>
+			4.接线。点击Place -- Wire。参考如图。<br>
+			<img src="" alt=""/><br>
+			5.修改电参数。<br>
+			<img src="" alt=""/><br>
+			6.标注标号。可选择自动标注：点击Tools--Annotate Schematics--Update Changes List--Accept Changes(Create ECO)--Execute Changes--Close。<br>
+			<img src="" alt=""/><br>
+			7.最小系统的原理图部分绘制完成。如图。<br>
+			<img src="" alt=""/><br>
+			</p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    </div>
+</body>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/jquery.gifplayer.min.js"></script>
+  <script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: { 
+            top: 125 
+      }
+    });
+	$('.gifs').gifplayer({
+		label:'播放'
+	});
+});
+</script>
+</html>
