@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>51最小系统PCB绘制</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../favicon.ico">
+<style>
+/* Custom Styles */
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+   <div class="jumbotron">
+        <h1>51最小系统PCB绘制</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.基本概念</a></li>
+                <li><a href="#section-3">3.绘制pcb库</a></li>
+                <li><a href="#section-4">4.pcb文件设计</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+<h2 id="section-0">0.说明</h2>
+<p>PCB(Printed Circuit Board)，中文名称为印制电路板，又称印刷线路板，是重要的电子部件，是电子元器件的支撑体，是电子元器件电气连接的载体。由于它是采用电子印刷术制作的，故被称为“印刷”电路板。<br>通过绘制51系列单片机最小系统PCB图，进一步了解Altium Designer的使用方法和操作步骤。</p>
+<hr>
+<h2 id="section-1">1.准备</h2>
+<p><ol>
+<li>按《<a href="ad_mini51_schematic_tutorial.html" target="_blank">51最小系统原理图绘制</a>》中的步骤，绘制好原理图。</li>
+<li>查阅数据手册中关于封装的章节。如《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" target="_blank">AT89S51数据手册(DataSheet)</a>》中，关于封装(Packaging Information)的信息。</li>
+<img src="res/pic/pcb_tutorial_pic1.png" alt="封装"/><br>
+</ol></p>
+<hr>
+<h2 id="section-2">2.基本概念</h2>
+<p><ol>
+<li>印制电路板制造，以减去法中的腐蚀铜箔法为主。<br>减去法：是利用化学品或机械将空白的电路板（即铺有完整一块的金属箔的电路板）上不需要的地方除去，余下的地方便是所需要的电路。</li>
+<li>元器件封装工作层面<ul>
+<li>信号层：用来放置元件和布线。包括：顶层Top Layer/中间层Multi-Layer/底层Bottom Layer。</li>
+<li>机械层：用于放置与电路板的机械特性有关的标注尺寸信息和定位孔。包括：Mechanical 13等。</li>
+<li>阻焊层：其意义是反的。不包含该层的地方将覆盖阻焊(绿油)。包括：顶层Top Solder/底层Bottom Solder。</li>
+<li>锡膏防护层：用来制作印刷锡膏的钢网。包括：顶层Top Paste/底层Bottom Paste。</li>
+<li>丝印层：用于绘制元件的外形轮廓、文件标号和说明文字等。包括：顶层Top Overlay/底层Bottom Overlay。</li>
+<li>禁止布线层：用于绘制印制板的边框等信息。包括：Keep-Out Layer。</li>
+<img src="res/pic/pcb_tutorial_pic2.png" alt="pcb"/><br>
+</ul></li>
+<li>常见元器件封装类型<ul>
+<li>SIP：单列直插式封装，引脚中心距为2.54mm。</li>
+<img src="res/pic/pcb_tutorial_pic3.png" alt="sip"/><br>
+<li>DIP(Dual inline-pin Package)双列直插式封装，引脚中心距为2.54mm，应用广泛。</li>
+<img src="res/pic/pcb_tutorial_pic4.png" alt="dip"/><br>
+<li><a href="https://pan.baidu.com/s/1nv9FPpR" target="_blank">其他常用元器件的PCB封装</a>。</li>
+<li>PCB设计中的常用尺寸单位：mil(密耳)，为英制单位，1mil=1/1000inch=0.0254mm。如管脚间距为100mil，即为2.54mm。</li>
+</ul></li>
+</ol></p>
+<hr>
+<h2 id="section-3">3.绘制PCB库</h2>
+<p><ol>
+<li>PCB库，主要用来保存和编辑元器件PCB封装的尺寸和管脚位置。新建pcb库。File--New--Library--PCB Library。</li>
+<img src="res/pic/pcb_tutorial_pic5.png" alt="new file"/><br>
+<li>元器件PCB封装，可通过手动编辑生成。部分器件也可以使用向导生成。下面以51单片机的封装为例，进行示范。</li>
+<ol>
+<li>手动编辑示范</li>
+<ol>
+<li>放置焊盘位置，定义焊盘属性(推荐通孔直径35mil，焊盘大小为65mil)。</li>
+<div class="alert alert-info">
+第1个焊盘，一般会特殊标记。如:第1个引脚，使用方形焊盘,其他引脚用圆形焊盘;也可以在丝印层使用小圆点标记第1个引脚。
+</div>
+<li>在丝印层标记单片机的尺寸，和半圆形缺口位置。</li>
+<li>在右键--工具--元件属性对话框里，修改名称为"DIP40"。</li>
+<li>保存PCB库文件。</li>
+<img src="res/pic/pcb_tutorial_pic7.gif" alt="dip40_1"/><br>
+</ol>
+<li>向导生成示范</li>
+<ol>
+<li>使用元器件向导。Tools--Component Wizard...--Next--选择”Dual In-line Packages(DIP)”--Next--修改过孔大小为35mil--Next--Next--Next--修改焊盘数为40--Next--Next--Finish。我们一般选购的DIP40的单片机的封装，即绘制完成。</li>
+<li>保存PCB库文件。</li>
+<img src="res/pic/pcb_tutorial_pic6.gif" alt="dip40_2"/><br>
+</ol>
+</ol>
+<li>添加其他器件的pcb封装。</li>
+</ol></p>
+<hr>
+<h2 id="section-4">4.pcb文件设计</h2>
+<p><ol>
+<li>设置原理图文件中的元件封装。</li>
+<img src="res/pic/pcb_tutorial_pic8.gif" alt="setting"/><br>
+<li>在工程中，新建PCB文件，并保存。</li>
+<img src="res/pic/pcb_tutorial_pic9.gif" alt="setting"/><br>
+<li>然后更新PCB文件。</li>
+<img src="res/pic/pcb_tutorial_pic10.gif" alt="setting"/><br>
+<li>修改元件封装；并在PCB文件中，修改元器件布局。让后续的布线更合理简便。</li>
+<img src="res/pic/pcb_tutorial_pic11.png" alt="setting"/><br>
+<li>设计板子形状</li>
+<ol>
+<li>在Keep-Out Layer层，绘制一个闭合的区域。</li>
+<li>选中该区域，在菜单"设计--板子形状--按照选择对象定义"。</li>
+</ol>
+<img src="res/pic/pcb_tutorial_pic12.gif" alt="setting"/><br>
+<li>布线可以使用手工布线或自动布线。</li>
+<ul>
+<li>手工布线:使用Interactively Route Connections<img src="res/pic/pcb_tutorial_pic12.png"/>在<img src="res/pic/pcb_tutorial_pic13.png"/>和<img src="res/pic/pcb_tutorial_pic14.png"/>层绘制导线。</li>
+<li>自动布线:使用菜单"自动布线--全部(A)...--编辑规则--Routing--Width"，设置线宽，按"确定--Route All"按钮自动布线。</li>
+<div class="alert alert-info">
+推荐线宽：<br>信号线：10mil，电源线：30mil。
+</div>
+<img src="res/pic/pcb_tutorial_pic13.gif" alt="route"/><br>
+</ul>
+<li>放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
+<ul>
+<li>焊盘方式</li>
+<img src="res/pic/pcb_tutorial_pic14.gif" alt="pad"/><br>
+<li>Keep-Out Layer层剪切方式</li>
+<img src="res/pic/pcb_tutorial_pic15.gif" alt="cut"/><br>
+</ul>
+<li>
+泪滴：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
+</li>
+<img src="res/pic/pcb_tutorial_pic16.gif" alt="drop"/><br>
+<li>铺铜：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。</li>
+<img src="res/pic/pcb_tutorial_pic17.gif" alt="gnd"/><br>
+<li>丝印层：增加组号、项目名称、版本号等。</li>
+<div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
+<img src="res/pic/pcb_tutorial_pic18.png" alt="des"/><br>
+</ol></p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    </div>
+</body>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: { 
+            top: 125 
+      }
+    });
+});
+</script>
+</html>

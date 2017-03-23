@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Keil使用说明</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../favicon.ico">
+<style>
+/* Custom Styles */
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+   <div class="jumbotron">
+        <h1>Keil使用说明</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.新建工程</a></li>
+                <li><a href="#section-3">3.编码</a></li>
+                <li><a href="#section-4">4.下载</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+<h2 id="section-0">0.说明</h2>
+<p>通过编写一个简单的程序，熟悉Keil开发环境的使用和Hex二进制文件下载。</p>
+<hr>
+<h2 id="section-1">1.准备</h2>
+<p><ol>
+<li>按《<a href="keil_install_tutorial.html" target="_blank">Keil安装说明</a>》中的步骤，安装好Keil开发环境。</li>
+<li>准备一件完整的51单片机硬件板。</li>
+<li>下载51单片机数据手册，推荐Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51" target="_blank"
+>AT89S51产品页</a>下载《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" target="_blank"
+>AT89S51数据手册(DataSheet)</a>》，以备查阅。</li>
+</ol></p>
+<hr>
+<h2 id="section-2">2.新建工程</h2>
+<p><ol>
+<li>打开Keil开发环境，点击"Project--New uVision Project"。</li>
+<li>选择主控芯片为"AT89S51"。</li>
+<li>新建文档，保存为后缀为".c"的文件。</li>
+<li>将文件添加到工程中。</li>
+<li>在"工程--Options for Target'Target1'--Output--Create Hex File"，勾选确定。</li>
+<li>点击"Build"按钮，出现"creating hex file from 'xxx'..."字样。</li>
+<img src="res/pic/keil_use_tutorial_pic2.gif" alt="新建文档"/><br>
+</ol></p>
+<hr>
+<h2 id="section-3">3.编码</h2>
+<p><ol>
+<li>添加主控芯片对应的头文件，头文件中，主要包含寄存器的定义。</li>
+<li>在工程中的.c文件，添加main函数。</li>
+<li>定义管脚。</li>
+<li>在main函数中，增加无限循环语句while(1)。</li>
+<li>添加其他相关代码。</li>
+<img src="res/pic/keil_use_tutorial_pic3.png" alt="编码"/><br>
+</ol></p>
+<hr>
+<h2 id="section-4">4.下载</h2>
+<p><ol>
+<li>记录工程所生成的Hex二进制文件路径。也可以使用：<a href="res/doc/blink.hex" download="blink.hex" target="_blank">P0.0口LED闪烁二进制文件</a>。</li>
+<li>AT系列单片机使用<a href="https://pan.baidu.com/s/1slAnBTb" target="_blank">Progisp软件</a>下载。</li>
+<ol>
+<li>使用PC机USB口，连接AT系列下载器。</li>
+<li>另一端连接单片机板IDC10下载口。</li>
+<img src="res/pic/keil_use_tutorial_pic7.png" alt="at"/><br>
+<li>打开Progisp软件，选择主控芯片型号。</li>
+<li>点击"调入Flash"按钮，选择工程所生成的Hex二进制文件。</li>
+<li>确保选中"编程Flash"后，点击"自动"按钮。</li>
+</ol>
+<img src="res/pic/keil_use_tutorial_pic5.png" alt="编码"/><br>
+<li>STC系列单片机使用<a href="https://pan.baidu.com/s/1qYm9fnI" target="_blank">STC-ISP软件</a>下载。</li>
+<ol>
+<li>使用PC机USB口，连接USB转TTL下载器。</li>
+<li>另一端连接单片机板串口。</li>
+<div class="alert alert-danger">注意：单片机板RXD需接下载器TXD，单片机板TXD需接下载器RXD。</div>
+<img src="res/pic/keil_use_tutorial_pic6.png" alt="at"/><br>
+<li>安装相应驱动，确保映射成一个串口。</li>
+<img src="res/pic/keil_use_tutorial_pic8.png" alt="at"/><br>
+<li>打开STC-ISP软件，选择单片机型号。</li>
+<li>选择下载器的串口号。</li>
+<li>点击"打开应用程序"按钮，选择工程所生成的Hex二进制文件。</li>
+<li>点击"下载/编程"按钮。</li>
+<li>需断电重启STC单片机，才能开始下载进程。</li>
+</ol>
+<img src="res/pic/keil_use_tutorial_pic4.png" alt="编码"/><br>
+</ol></p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    </div>
+</body>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: { 
+            top: 125 
+      }
+    });
+});
+</script>
+</html>
