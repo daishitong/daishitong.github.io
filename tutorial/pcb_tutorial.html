@@ -121,7 +121,7 @@
 <hr>
 <h2 id="section-4">4.pcb文件设计</h2>
 <p><ol>
-<li>设置原理图文件中的元件封装。</li>
+<li>修改和设置原理图文件中相应元件的封装。以51单片机为例：</li>
 <img src="res/pic/pcb_tutorial_pic8.gif" alt="setting"/><br>
 <li>在工程中，新建PCB文件，并保存。</li>
 <img src="res/pic/pcb_tutorial_pic9.gif" alt="setting"/><br>
@@ -132,6 +132,7 @@
 <li>设计板子形状</li>
 <ol>
 <li>在Keep-Out Layer层，绘制一个闭合的区域。</li>
+<div  class="alert alert-info">区域大小应尽量控制在100mm*100mm以内。</div>
 <li>选中该区域，在菜单"设计--板子形状--按照选择对象定义"。</li>
 </ol>
 <img src="res/pic/pcb_tutorial_pic12.gif" alt="setting"/><br>
@@ -144,7 +145,7 @@
 </div>
 <img src="res/pic/pcb_tutorial_pic13.gif" alt="route"/><br>
 </ul>
-<li>放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
+<li>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
 <ul>
 <li>焊盘方式</li>
 <img src="res/pic/pcb_tutorial_pic14.gif" alt="pad"/><br>
@@ -155,11 +156,15 @@
 泪滴：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
 </li>
 <img src="res/pic/pcb_tutorial_pic16.gif" alt="drop"/><br>
+<li>当前的pcb状态，参考如图。</li>
+<img src="res/pic/pcb_tutorial_pic19.png" alt="pcb1"/><br>
 <li>铺铜：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。</li>
 <img src="res/pic/pcb_tutorial_pic17.gif" alt="gnd"/><br>
 <li>丝印层：增加组号、项目名称、版本号等。</li>
 <div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
 <img src="res/pic/pcb_tutorial_pic18.png" alt="des"/><br>
+<li>绘制完成的PCB图，参考如图。</li>
+<img src="res/pic/pcb_tutorial_pic20.png" alt="pcb2"/><br>
 </ol></p>
         </div>
     </div>
