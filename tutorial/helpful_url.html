@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>常用相关链接</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../favicon.ico">
+<style>
+/* Custom Styles */
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+   <div class="jumbotron">
+        <h1>常用相关链接</h1>
+    </div>
+<ul>
+<li><a target="_blank" href="http://www.atmel.com/products/microcontrollers/8051architecture/default.aspx?tab=overview">Atmel 51系列单片机官网</a></li>
+<li><a target="_blank" href="http://www.stcmcu.com/">STC单片机官网</a></li>
+<hr>
+<li><a href="http://www.alldatasheetcn.com/" target="_blank">芯片数据手册查询系统</a></li>
+<div align="center"><td height="60"><b><font color="#000" size="5">数据搜索系统，热门电子元器件搜索</font></b></td></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="#eeeeee">
+<form name="frmSearch" method="post" action="http://www.alldatasheetcn.com/view.jsp" onsubmit="return InputCheck(frmSearch,1)">
+<td align="right" height="50" width="50%" class="search_nv">
+<font face="sans-serif">部分名称</font>
+<select name="sField" style="font-family: sans-serif" ><option value="1">包括</option><option value="2">开始</font></option><option value="3">
+结尾</option><option value="4" selected>如同</option></select>
+<input size="18" name="sSearchword" value=""> <input type="hidden" name="seekcls" value=""><input type="submit" value="搜索">&nbsp;&nbsp; 
+&nbsp;</font></td>
+</form>
+<form name="frmSearchd" method="post" action="http://category.alldatasheetcn.com/index.jsp" onsubmit="return InputCheck(frmSearchd,2)">
+<td width="50%" class="search_nv"><font face="sans-serif">&nbsp;&nbsp;&nbsp; 详细搜索</font>
+<input size="25" name="sSearchword" value=""><input type="hidden" name="adcnt" value="2"> <input type="hidden" name="seekcls" value=""><input type="submit" value="搜索">
+</td></form>
+</table>
+</ul>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    </div>
+</body>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://www.alldatasheetcn.com/js/dataseek.js"></script>
+  <script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: { 
+            top: 125 
+      }
+    });
+});
+</script>
+</html>
