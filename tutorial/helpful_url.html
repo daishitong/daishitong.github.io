@@ -61,12 +61,96 @@
 <hr>
 <li><a target="_blank" href="http://www.stcmcu.com/">STC单片机官网</a></li>
 <li><a href="https://pan.baidu.com/s/1qYm9fnI" target="_blank">STC-ISP软件</a></li>
-<li><a href="https://pan.baidu.com/s/1jIicin8" target="_blank">PL2302-USB-TTL驱动</li>
-<li><a href="https://pan.baidu.com/s/1kUQznGN" target="_blank">CH340_CH341-USB-TTL驱动</li>
+<li><a href="https://pan.baidu.com/s/1jIicin8" target="_blank">PL2302-USB-TTL驱动</a></li>
+<li><a href="https://pan.baidu.com/s/1kUQznGN" target="_blank">CH340_CH341-USB-TTL驱动</a></li>
 <hr>
-<li><a href="https://pan.baidu.com/s/1nu8KFlJ" target="_blank">sscom串口调试器</li>
+<li><a href="https://pan.baidu.com/s/1nu8KFlJ" target="_blank">sscom串口调试器</a></li>
 <hr>
-<li><a href="https://github.com/daishitong/51demo" target="_blank">51简单程序例程</li>
+<li><a href="https://github.com/daishitong/51demo" target="_blank">51简单程序例程</a></li>
+<blockquote>
+<p>通过51简单程序例程，了解51系列单片机的IO口使用，串口数据通信和电机的运动控制等。</p>
+</blockquote>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>序号</th>
+<th>工程名</th>
+<th>简介</th>
+<th>端口</th>
+<th>Hex文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>EmptyDemo</td>
+<td>一个空白可编译的工程示例</td>
+<td>-</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/0.EmptyDemo/Objects/EmptyDemo.hex" download="EmptyDemo.hex">EmptyDemo.hex</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Led_Blink</td>
+<td>Led闪烁，频率1Hz</td>
+<td>P0.0</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/1.Led_Blink/Objects/Led_Blink.hex" download="Led_Blink.hex">Led_Blink.hex</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Key_Control_Led</td>
+<td>按键切换Led亮或灭</td>
+<td>P0.0,P0.1</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/2.Key_Control_Led/Objects/Key_Control_Led.hex" download="Key_Control_Led.hex">Key_Control_Led.hex</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Passive_Buzzer</td>
+<td>无源蜂鸣器，演奏"两只老虎"</td>
+<td>P0.2</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/3.Passive_Buzzer/Objects/Passive_Buzzer.hex" download="Passive_Buzzer.hex">Passive_Buzzer.hex</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Serial_Led</td>
+<td>串口控制Led亮或灭</td>
+<td>P3.0/RXD,P3.1/TXD,P0.0</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/4.Serial_Led/Objects/Serial_Led.hex" download="Serial_Led.hex">Serial_Led.hex</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ultrasound_Serial</td>
+<td>超声波模块获取障碍物距离，然后通过串口返回数据</td>
+<td>P0.3,P0.4,P3.0/RXD,P3.1/TXD</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/5.Ultrasound_Serial/Objects/Ultrasound_Serial.hex" download="Ultrasound_Serial.hex">Ultrasound_Serial.hex</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ultrasound_Led</td>
+<td>超声波模块获取障碍物距离，然后根据阈值控制Led亮或灭</td>
+<td>P0.3,P0.4,P0.0</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/6.Ultrasound_Led/Objects/Ultrasound_Led.hex" download="Ultrasound_Led.hex">Ultrasound_Led.hex</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Servo_Control</td>
+<td>舵机控制。3个端口分别输出：正方向最大，反方向最大，零位</td>
+<td>P0.5,P0.6,P0.7</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/7.Servo_Control/Objects/Servo_Control.hex" download="Servo_Control.hex">Servo_Control.hex</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>DCMoto_Control</td>
+<td>直流电机控制。先正转从小到大，再反转从小到大</td>
+<td>P0.0,P0.1</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/8.DCMoto_Control/Objects/DCMoto_Control.hex" download="DCMoto_Control.hex">DCMoto_Control.hex</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>StepperMotor_Control</td>
+<td>步进电机控制。先正转，然后反转，最后停止</td>
+<td>P0.0~P0.3</td>
+<td><a href="https://github.com/daishitong/51demo/raw/master/9.StepperMotor_Control/Objects/StepperMotor_Control.hex" download="StepperMotor_Control.hex">StepperMotor_Control.hex</a></td>
+</tr></tbody></table>
 <hr>
 <li><a href="http://www.alldatasheetcn.com/" target="_blank">芯片数据手册查询系统</a></li>
 <div align="center"><td height="60"><b><font color="#000" size="5">数据搜索系统，热门电子元器件搜索</font></b></td></div>
