@@ -97,17 +97,8 @@
 <h2 id="section-4">4.下载</h2>
 <p><ol>
 <li>记录工程所生成的Hex二进制文件路径。也可以使用：<a href="https://github.com/daishitong/51demo/raw/master/1.Led_Blink/Objects/Led_Blink.hex" download="Led_Blink.hex" target="_blank">P0.0口LED闪烁二进制文件</a>。</li>
-<li><a href="http://www.atmel.com/products/microcontrollers/8051architecture/default.aspx?tab=documents" target="_blank">AT系列单片机</a>使用<a href="https://pan.baidu.com/s/1pKYzRaN" target="_blank">Progisp软件</a>下载。</li>
-<ol>
-<li>使用PC机USB口，连接AT系列下载器。</li>
-<li>另一端连接单片机板IDC10下载口。</li>
-<img src="res/pic/keil_use_tutorial_pic7.png" alt="at"/><br>
-<li>打开Progisp软件，选择主控芯片型号。</li>
-<li>点击"调入Flash"按钮，选择工程所生成的Hex二进制文件。</li>
-<li>确保选中"编程Flash"后，点击"自动"按钮。</li>
-</ol>
-<img src="res/pic/keil_use_tutorial_pic5.png" alt="编码"/><br>
-<li><a href="http://www.stcmcu.com/" target="_blank">STC系列单片机</a>使用<a href="https://pan.baidu.com/s/1jHTkwmi" target="_blank">STC-ISP软件</a>下载。</li>
+<li>不同系列的单片机，使用不同的下载方法。主要有<a href="#stc">STC系列单片机</a>和<a href="#at">AT系列单片机</a>。</li>
+<li id="stc"><a href="http://www.stcmcu.com/" target="_blank">STC系列单片机</a>使用<a href="https://pan.baidu.com/s/1jHTkwmi" target="_blank">STC-ISP软件</a>下载。</li>
 <ol>
 <li>使用PC机USB口，连接USB转TTL下载器。</li>
 <li>另一端连接单片机板串口。</li>
@@ -122,6 +113,16 @@
 <li>需断电重启STC单片机，才能开始下载进程。</li>
 </ol>
 <img src="res/pic/keil_use_tutorial_pic4.png" alt="编码"/><br>
+<li id="at"><a href="http://www.atmel.com/products/microcontrollers/8051architecture/default.aspx?tab=documents" target="_blank">AT系列单片机</a>使用<a href="https://pan.baidu.com/s/1pKYzRaN" target="_blank">Progisp软件</a>下载。</li>
+<ol>
+<li>使用PC机USB口，连接AT系列下载器。</li>
+<li>另一端连接单片机板IDC10下载口。</li>
+<img src="res/pic/keil_use_tutorial_pic7.png" alt="at"/><br>
+<li>打开Progisp软件，选择主控芯片型号。</li>
+<li>点击"调入Flash"按钮，选择工程所生成的Hex二进制文件。</li>
+<li>确保选中"编程Flash"后，点击"自动"按钮。</li>
+</ol>
+<img src="res/pic/keil_use_tutorial_pic5.png" alt="编码"/><br>
 </ol></p>
         </div>
     </div>
