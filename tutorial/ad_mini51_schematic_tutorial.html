@@ -76,21 +76,21 @@
 			<li>新建pcb工程，点击File--New--Project--PCB Project;</li>
 			<li>添加元件库，点击File--New--Library--Schematic Library；</li>
 			<li>保存全部，点击File-Save All。</li>
-			<img src="res/pic/sch_tutorial_pic1.gif" alt="新建文档"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic1.gif" data-gifffer-alt="新建文档"/><br>
 			<li>切换视图到元件库。</li>
 			<img src="res/pic/sch_tutorial_pic2.png" alt="切换"/><br>
 			<li>新建元器件，点击Tool--Rename Component，将名称命名为8951;</li>
 			<li>放置元器件框图，点击Place--Rectangle，放置一个矩形。</li>
-			<img src="res/pic/sch_tutorial_pic3.gif" alt="新建元器件"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic3.gif" data-gifffer-alt="新建元器件"/><br>
 			<li>参考51单片机数据手册，记录单片机管脚位号和名称。</li>
 			<img src="res/pic/sch_tutorial_pic4.png" alt="数据手册"/><br>
 			<li>点击Place Pin，放置引脚。</li>
 			<div class="alert alert-info">Tips:<br>1.名称字母上方若需上划线，则在字母后加字符“\”。<br>
 			2.快捷键：选中引脚，按住鼠标左键，再按键盘键：<br/>空格键--将选中的物体逆时针旋转90°;X--放置元件时，左右翻转；Y--放置元件时，上下翻转。<br>
 			3.选中引脚，按Tab键，弹出属性对话框，可编辑名称和位号等。</div>
-			<img src="res/pic/sch_tutorial_pic5.gif" alt="引脚"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic5.gif" data-gifffer-alt="引脚"/><br>
 			<li>设置属性，点击Tool--Component Properties...，设置默认位号为U?,默认描述为8951。</li>
-			<img src="res/pic/sch_tutorial_pic6.gif" alt="属性"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic6.gif" data-gifffer-alt="属性"/><br>
 			<li>打开库视图，点击View--Workspace panels--System--Libraries。可以看到已经绘制的51单片机元件图，参考如下。</li>
 			<img src="res/pic/sch_tutorial_pic11.png" alt="元件图"/><br>
 			</ol></p>
@@ -98,18 +98,18 @@
             <h2 id="section-3">3.绘制原理图</h2>
             <p><ol><li>添加原理图。点击File--New--Schematic;</li>
 			<li>在Library视图中，将刚才绘制的51单片机元件图，拖放到原理图中。</li>
-			<img src="res/pic/sch_tutorial_pic7.gif" alt="原理图"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic7.gif" data-gifffer-alt="原理图"/><br>
 			<li>摆放好51最小系统所需其他元器件。</li>
 			<div class="alert alert-info">一些常用的元器件，已保存在系统元件库中：<br>i.电阻：Miscellaneous Devices.IntLib -- Res1<br>ii.电容：Miscellaneous Devices.IntLib -- Cap<br>iii.晶振：Miscellaneous Devices.IntLib -- XTAL<br>iv.Led：Miscellaneous Devices.IntLib -- LED0</div>
 			<li>点击Place -- Wire，使用网络标号，接线。</li>
 			<div class="alert alert-info">网络标号(Net Label)是一个电气连接点，具有相同网络标号的电气连接线、管脚是连接在一起的。</div>
-			<img src="res/pic/sch_tutorial_pic8.gif" alt="接线"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic8.gif" data-gifffer-alt="接线"/><br>
 			<li>在两条连接线实际连接的情况下，需检查并放置手工接点。</li>
-			<img src="res/pic/sch_tutorial_pic10.gif" alt="接点"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic10.gif" data-gifffer-alt="接点"/><br>
 			<li>修改器件数值。</li>
 			<img src="res/pic/sch_tutorial_pic12.png" alt="数值"/><br>
 			<li>标注标号。可选择自动标注：点击Tools--Annotate Schematics--Update Changes List--Accept Changes(Create ECO)--Execute Changes--Close。</li>
-			<img src="res/pic/sch_tutorial_pic9.gif" alt="标注"/><br>
+			<img data-gifffer="res/pic/sch_tutorial_pic9.gif" data-gifffer-alt="标注"/><br>
 			<li>完善原理图，如直流电源插座、下载电路等。最小系统的原理图部分绘制完成，参考如下。</li>
 			<img src="res/pic/sch_tutorial_pic10.png" alt="原理图"/><br>
 			</ol></p>
@@ -124,8 +124,10 @@
 </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/gifffer/1.5.0/gifffer.min.js"></script>
   <script>
 $(document).ready(function(){
+	Gifffer();
     $("#myNav").affix({
         offset: { 
             top: 125 

@@ -123,7 +123,7 @@
 <tr>
 <td>04</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/04.Serial" target="_blank">Serial</a></td>
-<td>每隔3秒，通过串口输出一张"九九乘法表"</td>
+<td>通过串口传输数据，循环输出`99乘法表`,并可以通过发送数据帧，传输两个乘数，然后返回两个乘数的计算结果。掌握串口字符串的格式化及使用。</td>
 <td>P3.0/RXD,P3.1/TXD</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/04.Serial/Objects/Serial.hex" download="Serial.hex" target="_blank">Serial.hex</a></td>
 </tr>
@@ -171,7 +171,24 @@
 </tr>
 </tbody></table>
 <hr>
-<li><a href="http://www.alldatasheetcn.com/" target="_blank">芯片数据手册查询系统</a></li>
+<li>
+<a href="http://www.datasheet5.com/d5/qa" target="_blank" >Datasheet十万个为什么</a>
+</li>
+<li><a href="http://www.datasheet5.com/" target="_blank">datasheet5集成电路查询网</a></li>
+    <div align="center"><a class="special" href="http://www.datasheet5.com/" target="_blank" title="Datasheet5集成电路查询网"><img src="http://www.datasheet5.com/usr/apps/d5/resources/images/d5_logo_small.gif" align="top" alt="Datasheet5集成电路查询网"/></a>
+    <form id="frm-search-shouye" action="http://www.datasheet5.com/partsearch" method="get" class="query-f" style="text-align:center;" target="_blank">
+       <div id="biglogo" style="visibility:hidden;height: 38px;position: relative;vertical-align: middle;display: inline-block;margin-right: 33px;">
+              <a id="special" href="/" ><img style="max-width: 212px;margin-top: -13px;margin-right: 11px;margin-left: -47px;"src="http://www.datasheet5.com/usr/apps/d5/resources/images/weixin_banner.jpg" title="Datasheet5集成电路查询网" alt="Datasheet5集成电路查询网"></a>
+       </div>
+       <div class="query-inner">
+           <input class="field-query" type="text" name="q" maxlength="256" autocomplete="off" style="width:428px; color:#cccccc; font-size:14px; font-family:'微软雅黑; line-height:40px; border:1px solid #000;"
+		   value="例：AD9644、模数转换器、ADC" onFocus="if(value==defaultValue){value='';this.style.color='#333333'}" onBlur="if(!value){value=defaultValue;this.style.color='#cccccc';this.style.fontSize='14px';}"
+		   />
+           <button class="field-sub" type="submit"><font face="微软雅黑">搜 索</font></button>   
+	   </div>
+    </form>
+	</div>
+<li><a href="http://www.alldatasheetcn.com/" target="_blank">alldatasheetcn芯片数据手册查询系统</a></li>
 <div align="center"><td height="60"><b><font color="#000" size="5">数据搜索系统，热门电子元器件搜索</font></b></td></div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="#eeeeee">
 <form name="frmSearch" method="post" action="http://www.alldatasheetcn.com/view.jsp" onsubmit="return InputCheck(frmSearch,1)" target="_blank">
