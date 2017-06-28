@@ -75,6 +75,7 @@
 <h3>数据手册</h3>
 <li><a href="https://pan.baidu.com/s/1dFmWM9V" target="_blank">简介：AT89S52</a></li>
 <li><a href="https://pan.baidu.com/s/1pLQ8bfP" target="_blank">寄存器介绍：Atmel 8051 Microcontrollers Hardware Manual</a></li>
+<li><a href="https://pan.baidu.com/s/1jItAWsQ" target="_blank">STC89C51RC数据手册</a></li>
 <hr>
 <li><a href="https://github.com/daishitong/51demo" target="_blank">51简单程序例程</a></li>
 <blockquote>
@@ -103,21 +104,21 @@
 <td>01</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/01.Led_Blink" target="_blank">Led_Blink</a></td>
 <td>Led闪烁，频率1Hz</td>
-<td>P0.0</td>
+<td>P2.0</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/01.Led_Blink/Objects/Led_Blink.hex" download="Led_Blink.hex" target="_blank">Led_Blink.hex</a></td>
 </tr>
 <tr>
 <td>02</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/02.Key_Control_Led" target="_blank">Key_Control_Led</a></td>
 <td>按键切换Led亮或灭</td>
-<td>P0.0,P0.1</td>
+<td>P2.0,P2.1</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/02.Key_Control_Led/Objects/Key_Control_Led.hex" download="Key_Control_Led.hex" target="_blank">Key_Control_Led.hex</a></td>
 </tr>
 <tr>
 <td>03</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/03.Passive_Buzzer" target="_blank">Passive_Buzzer</a></td>
 <td>无源蜂鸣器，演奏"两只老虎"</td>
-<td>P0.2</td>
+<td>P2.2</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/03.Passive_Buzzer/Objects/Passive_Buzzer.hex" download="Passive_Buzzer.hex" target="_blank">Passive_Buzzer.hex</a></td>
 </tr>
 <tr>
@@ -131,27 +132,27 @@
 <td>05</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/05.Serial_Led" target="_blank">Serial_Led</a></td>
 <td>串口控制Led亮或灭</td>
-<td>P3.0/RXD,P3.1/TXD,P0.0</td>
+<td>P3.0/RXD,P3.1/TXD,P2.0</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/05.Serial_Led/Objects/Serial_Led.hex" download="Serial_Led.hex" target="_blank">Serial_Led.hex</a></td>
 </tr>
 <tr>
 <td>06</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/06.Ultrasound_Led" target="_blank">Ultrasound_Led</a></td>
 <td>超声波模块获取障碍物距离，然后根据阈值控制Led亮或灭</td>
-<td>P0.3,P0.4,P0.0</td>
+<td>P2.3,P3.2/INT0,P2.0</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/06.Ultrasound_Led/Objects/Ultrasound_Led.hex" download="Ultrasound_Led.hex" target="_blank">Ultrasound_Led.hex</a></td>
 </tr>
 <tr>
 <td>07</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/07.Ultrasound_Serial" target="_blank">Ultrasound_Serial</a></td>
 <td>超声波模块获取障碍物距离，然后通过串口返回数据</td>
-<td>P0.3,P0.4,P3.0/RXD,P3.1/TXD</td>
+<td>P2.3,P3.2/INT0,P3.0/RXD,P3.1/TXD</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/07.Ultrasound_Serial/Objects/Ultrasound_Serial.hex" download="Ultrasound_Serial.hex" target="_blank">Ultrasound_Serial.hex</a></td>
 </tr>
 <tr>
 <td>08</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/08.Servo_Control" target="_blank">Servo_Control</a></td>
-<td>舵机控制。4个端口分别输出：连续旋转，正方向最大，零位，反方向最大</td>
+<td>舵机控制。通过4个端口分别控制舵机依次进行连续旋转运动。一次只进行一个舵机的动作。</td>
 <td>P0.4,P0.5,P0.6,P0.7</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/08.Servo_Control/Objects/Servo_Control.hex" download="Servo_Control.hex" target="_blank">Servo_Control.hex</a></td>
 </tr>
@@ -159,14 +160,14 @@
 <td>09</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/09.DCMoto_Control" target="_blank">DCMoto_Control</a></td>
 <td>直流电机控制。先正转从小到大，再反转从小到大</td>
-<td>P0.0,P0.1</td>
+<td>P2.4,P2.5</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/09.DCMoto_Control/Objects/DCMoto_Control.hex" download="DCMoto_Control.hex" target="_blank">DCMoto_Control.hex</a></td>
 </tr>
 <tr>
 <td>10</td>
 <td><a href="https://github.com/daishitong/51demo/tree/master/10.StepperMotor_Control" target="_blank">StepperMotor_Control</a></td>
 <td>步进电机控制。先正转，然后反转，最后停止</td>
-<td>P0.0,P0.1,P0.2,P0.3</td>
+<td>P2.4,P2.5,P2.6,P2.7</td>
 <td><a href="https://github.com/daishitong/51demo/raw/master/10.StepperMotor_Control/Objects/StepperMotor_Control.hex" download="StepperMotor_Control.hex" target="_blank">StepperMotor_Control.hex</a></td>
 </tr>
 </tbody></table>
