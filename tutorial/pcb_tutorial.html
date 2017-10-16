@@ -55,7 +55,7 @@
 				<li class="active"><a href="#section-0">0.说明</a></li>
                 <li><a href="#section-1">1.准备</a></li>
                 <li><a href="#section-2">2.基本概念</a></li>
-                <li><a href="#section-3">3.绘制pcb库</a></li>
+                <li><a href="#section-3">3.pcb封装设计</a></li>
                 <li><a href="#section-4">4.pcb文件设计</a></li>
 				<li><a href="index.html"><<<返回</a></li>
             </ul>
@@ -93,12 +93,12 @@
 </ul></li>
 </ol></p>
 <hr>
-<h2 id="section-3">3.绘制PCB库</h2>
+<h2 id="section-3">3.pcb封装设计</h2>
 <p><ol>
-<li>PCB库，主要用来保存和编辑元器件PCB封装的尺寸和管脚位置。新建pcb库。File--New--Library--PCB Library。</li>
+<li><b>新建pcb库。</b>PCB库，主要用来保存和编辑元器件PCB封装的尺寸和管脚位置。File--New--Library--PCB Library。</li>
 <img src="res/pic/pcb_tutorial_pic5.png" alt="new file"/><br>
-<li>元器件PCB封装，可通过手动编辑生成。部分器件也可以使用向导生成。下面以51单片机的封装为例，进行示范。</li>
-<ol>
+<li><b>生成元器件封装。</b>元器件PCB封装，可通过手动编辑生成。部分器件也可以使用向导生成。下面以51单片机的封装为例，进行示范。</li>
+<ul>
 <li>手动编辑示范</li>
 <ol>
 <li>放置焊盘位置，定义焊盘属性(推荐通孔直径35mil，焊盘大小为65mil)。</li>
@@ -118,37 +118,40 @@
 编辑好的DIP40的元器件封装参考如下：<br/>
 <img src="res/pic/pcb_tutorial_pic21.png" alt="dip40_3"/><br>
 </ol>
-</ol>
-<li>添加原理图内其他元器件的pcb封装。</li>
+</ul>
+<li><b>添加原理图内其他元器件的pcb封装。</b></li>
 </ol></p>
 <hr>
 <h2 id="section-4">4.pcb文件设计</h2>
 <p><ol>
-<li>修改和设置原理图文件中相应元件的封装。以51单片机为例：</li>
+<li><b>修改和设置原理图文件中相应元件的封装。</b>以51单片机为例：</li>
 <img data-gifffer="res/pic/pcb_tutorial_pic8.gif" data-gifffer-alt="setting"/><br>
-<li>在工程中，新建PCB文件，并保存。</li>
+<li><b>在工程中，新建PCB文件，并保存。</b></li>
 <img data-gifffer="res/pic/pcb_tutorial_pic9.gif" data-gifffer-alt="setting"/><br>
-<li>然后在原理图文件的主菜单中，选择"设计--Update PCB Document xxx.PcbDoc"菜单，选择更改，然后点击"生效更改"，"执行更改"按钮，更新PCB文件。</li>
+<li><b>更新PCB文件。</b>然后在原理图文件的主菜单中，选择"设计--Update PCB Document xxx.PcbDoc"菜单，选择更改，然后点击"生效更改"，"执行更改"按钮，更新PCB文件。</li>
 <img data-gifffer="res/pic/pcb_tutorial_pic10.gif" data-gifffer-alt="setting"/><br>
-<li>修改元件封装；并在PCB文件中，修改元器件布局。让后续的布线更合理简便。</li>
+<li><b>修改元件封装</b>；并在PCB文件中，修改元器件布局。让后续的布线更合理简便。</li>
 <img src="res/pic/pcb_tutorial_pic11.png" alt="setting"/><br>
-<li>设计板子形状</li>
+<li><b>设计板子形状</b></li>
 <ol>
 <li>在Keep-Out Layer层，绘制一个闭合的区域边框。</li>
 <div  class="alert alert-info">区域大小应尽量控制在100mm*100mm以内。</div>
 <li>按住Shift键，选中该区域边框，在菜单"设计--板子形状--按照选择对象定义"。</li>
 </ol>
 <img data-gifffer="res/pic/pcb_tutorial_pic12.gif" data-gifffer-alt="setting"/><br>
-<li>布线可以使用手工布线或自动布线。</li>
+<li><b>布线</b>可以使用手工布线或自动布线。</li>
 <ul>
 <li>手工布线:使用Interactively Route Connections<img src="res/pic/pcb_tutorial_pic12.png"/>在<img src="res/pic/pcb_tutorial_pic13.png"/>和<img src="res/pic/pcb_tutorial_pic14.png"/>层绘制导线。</li>
 <li>自动布线:使用菜单"自动布线--全部(A)...--编辑规则--Routing--Width"，设置线宽，按"确定--Route All"按钮自动布线。</li>
 <div class="alert alert-info">
 推荐线宽：<br>信号线：10mil，电源线：30mil。
 </div>
+<div class="alert alert-danger">
+警告：必须先完成板子形状的设计，才能进行自动布线，否则Altium Designer软件会崩溃。
+</div>
 <img data-gifffer="res/pic/pcb_tutorial_pic13.gif" data-gifffer-alt="route"/><br>
 </ul>
-<li>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
+<li><b>定位孔。</b>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
 <ul>
 <li>焊盘方式</li>
 <img data-gifffer="res/pic/pcb_tutorial_pic14.gif" data-gifffer-alt="pad"/><br>
@@ -156,14 +159,14 @@
 <img data-gifffer="res/pic/pcb_tutorial_pic15.gif" data-gifffer-alt="cut"/><br>
 </ul>
 <li>
-泪滴：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
+<b>泪滴</b>：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
 </li>
 <img data-gifffer="res/pic/pcb_tutorial_pic16.gif" data-gifffer-alt="drop"/><br>
 <li>当前的pcb状态，参考如图。</li>
 <img src="res/pic/pcb_tutorial_pic19.png" alt="pcb1"/><br>
-<li>铺铜：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。</li>
+<li><b>铺铜</b>：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。</li>
 <img data-gifffer="res/pic/pcb_tutorial_pic17.gif" data-gifffer-alt="gnd"/><br>
-<li>丝印层：增加组号、项目名称、版本号等。</li>
+<li><b>增加说明。</b>丝印层：增加组号、项目名称、版本号等。</li>
 <div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
 <img src="res/pic/pcb_tutorial_pic18.png" alt="des"/><br>
 <li>绘制完成的PCB图，参考如图。</li>
