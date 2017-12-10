@@ -67,16 +67,21 @@
 <h2 id="section-1">1.准备</h2>
 <p><ol>
 <li>按《<a href="keil_install_tutorial.html" target="_blank">Keil安装说明</a>》中的步骤，安装好Keil开发环境。</li>
-<li>准备一件完整的51单片机硬件板。</li>
-<li>下载51单片机数据手册，推荐Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51" target="_blank"
+<li>准备一件完整的51单片机硬件实验板。</li>
+<li>下载51单片机数据手册，以备查阅。
+<ol>
+<li>Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51" target="_blank"
 >AT89S51产品页</a>下载《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" download="AT89S51.pdf" target="_blank"
->AT89S51数据手册(DataSheet)</a>》，以备查阅。</li>
+>AT89S51数据手册(DataSheet)</a>》。</li>
+<li>STC 51单片机，在<a href="http://www.stcmcu.com/" target="_blank">STC单片机官方网站</a>下载<a href="http://www.stcmcudata.com/datasheet/stc/STC-AD-PDF/STC89C51RC-RD.pdf" target="_blank">《STC89C51RC/RD+系列单片机器件手册》</a>。</li>
+</ol>
+<li>如果使用keil开发stc系列单片机程序，可<a href="http://www.stcisp.com/stc_add_keil.html" target="_blank">添加STC单片机型号到KEIL中</a>。
 </ol></p>
 <hr>
 <h2 id="section-2">2.新建工程</h2>
 <p><ol>
 <li>打开Keil开发环境，点击"Project--New uVision Project"。</li>
-<li>选择主控芯片为"AT89S51"或"AT89S52"。</li>
+<li>以AT89S51为例，选择主控芯片为"AT89S51"。</li>
 <li>新建文档，保存为后缀为".c"的文件。</li>
 <li>将文件添加到工程中。</li>
 <li>在"工程--Options for Target'Target1'--Output--Create Hex File"，勾选确定。</li>
