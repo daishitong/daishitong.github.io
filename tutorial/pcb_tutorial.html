@@ -5,44 +5,9 @@
     <title>51最小系统PCB绘制</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/tutorial.css" rel="stylesheet">
 	<link rel="shortcut icon" href="../favicon.ico">
 	<script src="js/bdtj.js"></script>
-<style>
-/* Custom Styles */
-    ul.nav-tabs{
-        width: 140px;
-        margin-top: 20px;
-        border-radius: 4px;
-        border: 1px solid #ddd;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
-    }
-    ul.nav-tabs li{
-        margin: 0;
-        border-top: 1px solid #ddd;
-    }
-    ul.nav-tabs li:first-child{
-        border-top: none;
-    }
-    ul.nav-tabs li a{
-        margin: 0;
-        padding: 8px 16px;
-        border-radius: 0;
-    }
-    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
-        color: #fff;
-        background: #0088cc;
-        border: 1px solid #0088cc;
-    }
-    ul.nav-tabs li:first-child a{
-        border-radius: 4px 4px 0 0;
-    }
-    ul.nav-tabs li:last-child a{
-        border-radius: 0 0 4px 4px;
-    }
-    ul.nav-tabs.affix{
-        top: 30px; /* Set the top position of pinned element */
-    }
-</style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 <div class="container">
@@ -101,7 +66,7 @@
 <ul>
 <li>手动编辑示范</li>
 <ol>
-<li>放置焊盘位置，定义焊盘属性(推荐通孔直径35mil，焊盘大小为65mil)。</li>
+<li>放置焊盘位置，定义焊盘属性(推荐通孔直径<b>0.9mm</b>/35mil，焊盘大小为65mil)。</li>
 <div class="alert alert-info">
 第1个焊盘，一般会特殊标记。如:第1个引脚，使用方形焊盘,其他引脚用圆形焊盘;也可以在丝印层使用小圆点标记第1个引脚。
 </div>
@@ -164,7 +129,7 @@
 <img data-gifffer="res/pic/pcb_tutorial_pic16.gif" data-gifffer-alt="drop"/><br>
 <li>当前的pcb状态，参考如图。</li>
 <img src="res/pic/pcb_tutorial_pic19.png" alt="pcb1"/><br>
-<li><b>铺铜</b>：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。</li>
+<li><b>铺铜</b>：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。顶层TopLayer和底层BottomLayer都需铺铜。</li>
 <img data-gifffer="res/pic/pcb_tutorial_pic17.gif" data-gifffer-alt="gnd"/><br>
 <li><b>增加说明。</b>丝印层：增加组号、项目名称、版本号等。</li>
 <div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
