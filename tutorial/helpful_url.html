@@ -184,6 +184,12 @@
     </form>
 	</div>
 <hr>
+    <div align="center">
+    <h3><a href="../tool/mil_mm.html" target="_blank">英制mil和公制mm的转换</a></h3>
+    <input type="number" id="mil_textbox" placeholder="100" min="0" oninput="$('#mm_textbox').val(mil2mm($('#mil_textbox').val()))">mil=
+    <input type="number" id="mm_textbox" placeholder="2.54" min="0" step="0.0001" oninput="$('#mil_textbox').val(mm2mil($('#mm_textbox').val()))">mm
+    </div>
+<hr>
 <li><a href="http://www.digikey.com.cn/" target="_blank">得捷电子</a></li>
 <li><a href="http://china.rs-online.com/web/" target="_blank">RS中国|欧时</a></li>
 <li><a href="http://www.liangcailiqi.com/" target="_blank">良材利器</a></li>
@@ -202,6 +208,7 @@
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://www.alldatasheetcn.com/js/dataseek.js"></script>
+  <script src="../tool/js/mil_mm.js"></script>
 <script>
 $(document).ready(function(){
     $("#myNav").affix({
