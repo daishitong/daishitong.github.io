@@ -55,6 +55,10 @@
 <img src="res/pic/pcb_tutorial_pic4.png" alt="dip"/><br>
 <li><a href="https://pan.baidu.com/s/1nv9FPpR" target="_blank">其他常用元器件的PCB封装</a>。</li>
 <li>PCB设计中的常用尺寸单位：mil(密耳)，为英制单位，1mil=1/1000inch=0.0254mm。如管脚间距为100mil，即为2.54mm。</li>
+    <div align="center">
+    <input type="number" id="mil_textbox" placeholder="100" min="0" oninput="$('#mm_textbox').val(mil2mm($('#mil_textbox').val()))">mil=
+    <input type="number" id="mm_textbox" placeholder="2.54" min="0" step="0.0001" oninput="$('#mil_textbox').val(mm2mil($('#mm_textbox').val()))">mm
+    </div>
 </ul></li>
 </ol></p>
 <hr>
@@ -101,12 +105,18 @@
 <ol>
 <li>在Keep-Out Layer层，绘制一个闭合的区域边框。</li>
 <div  class="alert alert-info">区域大小应尽量控制在100mm*100mm以内。</div>
-<li>按住Shift键，选中该区域边框，在菜单"设计--板子形状--按照选择对象定义"。</li>
-</ol>
 <img data-gifffer="res/pic/pcb_tutorial_pic12.gif" data-gifffer-alt="setting"/><br>
+<li>按住Shift键，选中该区域边框，在菜单"设计--板子形状--按照选择对象定义"。</li>
+<img src="res/pic/pcb_tutorial_pic22.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic23.png"/><br>
+</ol>
 <li><b>布线</b>可以使用手工布线或自动布线。</li>
 <ul>
 <li>手工布线:使用Interactively Route Connections<img src="res/pic/pcb_tutorial_pic12.png"/>在<img src="res/pic/pcb_tutorial_pic13.png"/>和<img src="res/pic/pcb_tutorial_pic14.png"/>层绘制导线。</li>
+<div class="alert alert-danger">
+注意：绘图工具“走线(L)”，只是几何线段(Line)，不是真正的电线路(Wire)，没有电气特性。
+</div>
+<img src="res/pic/pcb_tutorial_pic24.png"/><br>
 <li>自动布线:使用菜单"自动布线--全部(A)...--编辑规则--Routing--Width"，设置线宽，按"确定--Route All"按钮自动布线。</li>
 <div class="alert alert-info">
 推荐线宽：<br>信号线：10mil，电源线：30mil。
@@ -114,7 +124,12 @@
 <div class="alert alert-danger">
 警告：必须先完成板子形状的设计，才能进行自动布线，否则Altium Designer软件会崩溃。
 </div>
-<img data-gifffer="res/pic/pcb_tutorial_pic13.gif" data-gifffer-alt="route"/><br>
+<img src="res/pic/pcb_tutorial_pic25.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic26.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic27.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic28.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic29.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic30.png"/><br><br>
 </ul>
 <li><b>定位孔。</b>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
 <ul>
@@ -148,7 +163,8 @@
 </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.bootcss.com/gifffer/1.5.0/gifffer.min.js"></script>
+  <script src="js/gifffer.min.js"></script>
+  <script src="../tool/js/mil_mm.js"></script>
   <script>
 $(document).ready(function(){
 	Gifffer();
