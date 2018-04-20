@@ -77,13 +77,13 @@
 <li>在丝印层标记单片机的尺寸，和半圆形缺口位置。</li>
 <li>在右键--工具--元件属性对话框里，修改名称为"DIP40"。</li>
 <li>保存PCB库文件。</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic7.gif" data-gifffer-alt="dip40_1"/><br>
+<video src="res/video/pcb_tutorial_pic7.mp4" controls="controls">dip40_1</video><br>
 </ol>
 <li>向导生成示范</li>
 <ol>
 <li>使用元器件向导。Tools--Component Wizard...--Next--选择”Dual In-line Packages(DIP)”--Next--修改过孔大小为35mil--Next--Next--Next--修改焊盘数为40--Next--Next--Finish。我们一般选购的DIP40的单片机的封装，即绘制完成。</li>
 <li>保存PCB库文件。</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic6.gif" data-gifffer-alt="dip40_2"/><br>
+<video src="res/video/pcb_tutorial_pic6.mp4" controls="controls">dip40_2</video><br>
 编辑好的DIP40的元器件封装参考如下：<br/>
 <img src="res/pic/pcb_tutorial_pic21.png" alt="dip40_3"/><br>
 </ol>
@@ -94,18 +94,18 @@
 <h2 id="section-4">4.pcb文件设计</h2>
 <p><ol>
 <li><b>修改和设置原理图文件中相应元件的封装。</b>以51单片机为例：</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic8.gif" data-gifffer-alt="setting"/><br>
+<video src="res/video/pcb_tutorial_pic8.mp4" controls="controls">setting</video><br>
 <li><b>在工程中，新建PCB文件，并保存。</b></li>
-<img data-gifffer="res/pic/pcb_tutorial_pic9.gif" data-gifffer-alt="setting"/><br>
+<video src="res/video/pcb_tutorial_pic9.mp4" controls="controls">setting</video><br>
 <li><b>更新PCB文件。</b>然后在原理图文件的主菜单中，选择"设计--Update PCB Document xxx.PcbDoc"菜单，选择更改，然后点击"生效更改"，"执行更改"按钮，更新PCB文件。</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic10.gif" data-gifffer-alt="setting"/><br>
-<li><b>修改元件封装</b>；并在PCB文件中，修改元器件布局。让后续的布线更合理简便。</li>
+<video src="res/video/pcb_tutorial_pic10.mp4" controls="controls">setting</video><br>
+<li><b>修改元件封装</b>；并在PCB文件中，进行<b>元器件布局</b>。让后续的布线更合理简便。</li>
 <img src="res/pic/pcb_tutorial_pic11.png" alt="setting"/><br>
 <li><b>设计板子形状</b></li>
 <ol>
 <li>在Keep-Out Layer层，绘制一个闭合的区域边框。</li>
 <div  class="alert alert-info">区域大小应尽量控制在100mm*100mm以内。</div>
-<img data-gifffer="res/pic/pcb_tutorial_pic12.gif" data-gifffer-alt="setting"/><br>
+<video src="res/video/pcb_tutorial_pic12.mp4" controls="controls">setting</video><br>
 <li>按住Shift键，选中该区域边框，在菜单"设计--板子形状--按照选择对象定义"。</li>
 <img src="res/pic/pcb_tutorial_pic22.png"/><br><br>
 <img src="res/pic/pcb_tutorial_pic23.png"/><br>
@@ -134,18 +134,18 @@
 <li><b>定位孔。</b>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用焊盘或Keep-Out Layer层剪切2种方式。</li>
 <ul>
 <li>焊盘方式</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic14.gif" data-gifffer-alt="pad"/><br>
+<video src="res/video/pcb_tutorial_pic14.mp4" controls="controls">pad</video><br>
 <li>Keep-Out Layer层剪切方式</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic15.gif" data-gifffer-alt="cut"/><br>
+<video src="res/video/pcb_tutorial_pic15.mp4" controls="controls">cut</video><br>
 </ul>
 <li>
 <b>泪滴</b>：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
 </li>
-<img data-gifffer="res/pic/pcb_tutorial_pic16.gif" data-gifffer-alt="drop"/><br>
+<video src="res/video/pcb_tutorial_pic16.mp4" controls="controls">drop</video><br>
 <li>当前的pcb状态，参考如图。</li>
 <img src="res/pic/pcb_tutorial_pic19.png" alt="pcb1"/><br>
 <li><b>铺铜</b>：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。顶层TopLayer和底层BottomLayer都需铺铜。</li>
-<img data-gifffer="res/pic/pcb_tutorial_pic17.gif" data-gifffer-alt="gnd"/><br>
+<video src="res/video/pcb_tutorial_pic17.mp4" controls="controls">gnd</video><br>
 <li><b>增加说明。</b>丝印层：增加组号、项目名称、版本号等。</li>
 <div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
 <img src="res/pic/pcb_tutorial_pic18.png" alt="des"/><br>
@@ -163,11 +163,9 @@
 </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/gifffer.min.js"></script>
   <script src="../tool/js/mil_mm.js"></script>
   <script>
 $(document).ready(function(){
-	Gifffer();
     $("#myNav").affix({
         offset: { 
             top: 125 
