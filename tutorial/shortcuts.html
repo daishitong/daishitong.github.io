@@ -8,8 +8,8 @@
 	<meta name="description" content="工程训练辅助材料，工程技术综合实践课程辅助材料">	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/tutorial.css" rel="stylesheet">
+	<link href="css\jdc-side-panel.css" rel=stylesheet>
 	<link rel="shortcut icon" href="../favicon.ico">
-	<script src="js/bdtj.js"></script>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 <div class="container">
@@ -722,9 +722,33 @@ Altium Designer14 SCH快捷键：<br />
     <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
     <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=NAIBBgYFAwANdEVFGldbWQ" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
 	</div>
+<div class="jdc-side" style="display: none;" id="side_div">
+  <div class="mod_hang_qrcode jdc_hang_qrcode">
+  <a class="mod_hang_qrcode_btn"></a>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod_hang_qrcode_show_bg" id="qrcode"></div>
+      <p>使用手机查看</p>
+    </div>
+  </div>
+</div>
 </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script src="js\checkDevice.js"></script>
+<script src="js/bdtj.js"></script>
+<script>
+if(!isMobileDevice())
+{
+	$("#side_div").show();
+	
+	$("#qrcode").qrcode({
+	width:128,
+	height:128,
+	text:window.location.href,
+});
+}
+</script>
   <script>
 $(document).ready(function(){
     $("#myNav").affix({
