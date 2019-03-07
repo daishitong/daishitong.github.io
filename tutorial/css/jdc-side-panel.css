@@ -9,7 +9,7 @@
 .mod_hang_qrcode_btn { display: block; width: 60px; height: 60px; color: #0989c5; font-size: 40px; cursor: pointer; -webkit-transition: all .25s ease; -moz-transition: all .25s ease; transition: all .25s ease }
 .mod_hang_top { display: block; width: 60px; height: 60px; margin: 5px 0 0; text-align: center; cursor: pointer; -webkit-transition: all .25s ease; -moz-transition: all .25s ease; transition: all .25s ease; background-color: transparent }
 .mod_hang_qrcode:hover .mod_hang_qrcode_show { display: block }
-.mod_hang_qrcode_btn { position: relative; margin-top: 5px; text-align: center; background-color: transparent; -webkit-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); -moz-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); box-shadow: 0 0 10px 0 rgba(20,34,67,.1);background: url("qr.png") center no-repeat; background-size: 100%}
+.mod_hang_qrcode_btn { position: relative; margin-top: 5px; text-align: center; background-color: transparent; -webkit-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); -moz-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); box-shadow: 0 0 10px 0 rgba(20,34,67,.1);background: url("qr.jpg") center no-repeat; background-size: 100%}
 .mod_hang_qrcode_btn span { display: none; position: absolute; top: 25px; left: 25px; width: 30px; line-height: 15px; font-size: 12px; text-align: center }
 .mod_hang_qrcode_btn:hover { color: #fff }
 .mod_hang_top { -webkit-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); -moz-box-shadow: 0 0 10px 0 rgba(20,34,67,.1); box-shadow: 0 0 10px 0 rgba(20,34,67,.1) }
