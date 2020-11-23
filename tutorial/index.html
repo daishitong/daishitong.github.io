@@ -42,18 +42,7 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.qrcode.min.js"></script>
-<script src="js\checkDevice.js"></script>
-<script>
-if(!isMobileDevice())
-{
-	$("#side_div").show();
-	
-	$("#qrcode").qrcode({
-	width:128,
-	height:128,
-	text:window.location.href,
-});
-}
-</script>
+<script src="js/checkDevice.js"></script>
+<script src="js/commonInit.js"></script>
 <script src="js/bdtj.js"></script>
 </html>
