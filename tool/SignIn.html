@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>综合课程签到</title>
+		<link href="../tutorial/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="shortcut icon" href="../favicon.ico">
+	</head>
+	<body>
+		<div onclick="fullScreen()" ondbclick="fullScreen()">
+			<img class="center-block" src='../tutorial/res/pic/综合课程签到二维码.png'/>
+		</div>
+		<div class="text-center" style="font-size:24px" id="showTimeDiv"></div>
+	</body>
+	<script src="../tutorial/js/Numeral/numeral.js"></script>
+	<script type="text/javascript">
+	function updateTime()
+	{
+		var date=new Date();  
+		var year=date.getFullYear(); //获取当前年份  
+		var mon=date.getMonth()+1; //获取当前月份  
+		var da=date.getDate(); //获取当前日  
+		var day=date.getDay(); //获取当前星期几  
+		var h=date.getHours(); //获取小时  
+		var m=date.getMinutes(); //获取分钟  
+		var s=date.getSeconds(); //获取秒  
+		var d=document.getElementById('showTimeDiv'); 
+		var Week = ['日','一','二','三','四','五','六']; 
+		d.innerHTML='<b>'+numeral(h).format('00')+':'+numeral(m).format('00')+':'+numeral(s).format('00')+'<br>'+year+'年'+mon+'月'+da+'日'+' 星期'+Week[day]+'</b>';
+	}
+
+window.onload=function(){
+	updateTime();
+	setInterval(updateTime,1000); }
+
+function fullScreen()
+{
+      var el = document.documentElement;
+      // div.webkitRuestFullScreen()//chrome webkit
+      // div.mozRequestFullScreen()//firefox   moz
+      // div.msRequestFullScreen()//ie  ms
+      // div.oRequestFullScreen()  //opera o 
+      if (el.requestFullScreen) {
+        el.requestFullScreen()
+      } else if (el.webkitRequestFullScreen) {
+        el.webkitRequestFullScreen()
+      } else if (el.mozRequestFullScreen) {
+        el.mozRequestFullScreen()
+      } else if (el.msRequestFullScreen) {
+        el.msRequestFullScreen()
+      } else if (el.oRequestFullScreen) {
+        el.oRequestFullScreen()
+      }
+}
+</script>
+</html>

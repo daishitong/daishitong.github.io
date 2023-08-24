@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>51最小系统PCB绘制</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="author" content="daishitong">
+	<meta name="description" content="工程训练辅助材料，工程技术综合实践课程辅助材料">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/tutorial.css" rel="stylesheet">
+	<link href="css\jdc-side-panel.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../favicon.ico">
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid">
+   <div class="jumbotron">
+        <h1>51最小系统PCB绘制</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.基本概念</a></li>
+                <li><a href="#section-3">3.pcb封装设计</a></li>
+                <li><a href="#section-4">4.pcb文件设计</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+<h2 id="section-0">0.说明</h2>
+<p>PCB(Printed Circuit Board)，中文名称为印制电路板，又称印刷线路板，是重要的电子部件，是电子元器件的支撑体，是电子元器件电气连接的载体。由于它是采用电子印刷术制作的，故被称为“印刷”电路板。</p><p>通过绘制51系列单片机最小系统PCB图，进一步了解Altium Designer的使用方法和操作步骤。</p>
+<hr>
+<h2 id="section-1">1.准备</h2>
+<p><ol>
+<li>按《<a href="ad_mini51_schematic_tutorial.html" target="_blank">51最小系统原理图绘制</a>》中的步骤，绘制好原理图。</li>
+<li>查阅数据手册中关于封装的章节。如《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" download="AT89S51.pdf" target="_blank">AT89S51数据手册(DataSheet)</a>》中，包装信息(Packaging Information)。</li>
+<img src="res/pic/pcb_tutorial_pic1.png" alt="封装"/><br>
+<li><a href="https://baike.baidu.com/item/%E5%85%83%E4%BB%B6%E5%B0%81%E8%A3%85/10372941" target="_blank">元件封装(Footprint)</a>，就是指把硅片上的电路管脚，用导线接引到外部接头处，以便与其它器件连接·封装形式是指安装半导体集成电路芯片用的外壳。它不仅起着安装、固定、密封、保护芯片及增强电热性能等方面的作用，而且还通过芯片上的接点用导线连接到封装外壳的引脚上，这些引脚又通过印刷电路板上的导线与其他器件相连接，从而实现内部芯片与外部电路的连接。因为芯片必须与外界隔离，以防止空气中的杂质对芯片电路的腐蚀而造成电气性能下降。另一方面，封装后的芯片也更便于安装和运输。</li>
+<img src="res/pic/pcb_tutorial_pic21.jpg" alt="封装"/><br>
+</ol></p>
+<hr>
+<h2 id="section-2">2.基本概念</h2>
+<p><ol>
+<li>印制电路板制造，以减去法中的腐蚀铜箔法为主。<br>减去法：是利用化学品或机械将空白的电路板（即铺有完整一块的金属箔的电路板）上不需要的地方除去，余下的地方便是所需要的电路。</li>
+<li>元器件封装工作层面<ul>
+<li>信号层：用来放置元件和布线。包括：<span style="background:#ff0000;color:white;">顶层Top Layer</span>/<span style="background:#0000ff;color:white;">底层Bottom Layer</span>等。</li>
+<li>机械层：用于放置与电路板的机械特性有关的标注尺寸信息和定位孔。包括：<span style="background:#ff00ff;color:white;">Mechanical 13</span>等。</li>
+<li>阻焊层：其意义是反的。不包含该层的地方将覆盖阻焊(绿油)。包括：<span style="background:#800080;color:white;">顶层Top Solder</span>/<span style="background:#ff00ff;color:white;">底层Bottom Solder</span>。</li>
+<li>锡膏防护层：用来制作印刷锡膏的钢网。包括：<span style="background:#808080;color:white;">顶层Top Paste</span>/<span style="background:#800000;color:white;">底层Bottom Paste</span>。</li>
+<li>丝印层：用于绘制元件的外形轮廓、文件标号和说明文字等。包括：<span style="background:#ffff00;">顶层Top Overlay</span>/<span style="background:#808000;color:white;">底层Bottom Overlay</span>。</li>
+<li>禁止布线层：用于绘制印制板的边框等信息。包括：<span style="background:#ff00ff;color:white;">Keep-Out Layer</span>。</li>
+<img src="res/pic/pcb_tutorial_pic2.png" alt="pcb"/><br>
+</ul></li>
+<li>常见元器件封装类型<ul>
+<li>SIP：单列直插式封装，引脚中心距为2.54mm。</li>
+<img src="res/pic/pcb_tutorial_pic3.png" alt="sip"/><br>
+<li>DIP(Dual inline-pin Package)双列直插式封装，引脚中心距为2.54mm，应用广泛。</li>
+<img src="res/pic/pcb_tutorial_pic4.png" alt="dip"/><br>
+<li><a href="https://pan.baidu.com/s/1nv9FPpR" target="_blank">其他常用元器件的PCB封装</a>。</li>
+<li>PCB设计中的常用尺寸单位：mil(密耳)，为英制单位，1mil=1/1000inch=0.0254mm。如管脚间距为100mil，即为2.54mm。</li>
+    <div align="center">
+    <input type="number" id="mil_textbox" placeholder="100" min="0" oninput="$('#mm_textbox').val(mil2mm($('#mil_textbox').val()))">mil=
+    <input type="number" id="mm_textbox" placeholder="2.54" min="0" step="0.0001" oninput="$('#mil_textbox').val(mm2mil($('#mm_textbox').val()))">mm
+    </div>
+</ul></li>
+</ol></p>
+<hr>
+<h2 id="section-3">3.pcb封装设计</h2>
+<p><ol>
+<li><b>新建pcb库。</b>PCB库，主要用来保存和编辑元器件PCB封装的尺寸和管脚位置。File--New--Library--PCB Library。</li>
+<img src="res/pic/pcb_tutorial_pic5.png" alt="new file"/><br>
+<li><b>生成元器件封装。</b>元器件PCB封装，可通过手动编辑生成。部分器件也可以使用向导生成。下面以51单片机的封装为例，进行示范。</li>
+<ul>
+<li>手动编辑示范</li>
+<ol>
+<li>放置焊盘位置，定义焊盘属性(推荐通孔直径<b>0.9mm</b>/35mil，焊盘大小为65mil)。</li>
+<div class="alert alert-info">
+第1个焊盘，一般会特殊标记。如:第1个引脚，使用方形焊盘,其他引脚用圆形焊盘;也可以在丝印层使用小圆点标记第1个引脚。
+</div>
+<li>在丝印层标记单片机的尺寸，和半圆形缺口位置。</li>
+<li>在右键--工具--元件属性对话框里，修改名称为"DIP40"。</li>
+<li>保存PCB库文件。</li>
+<video src="res/video/pcb_tutorial_pic7.mp4" controls="controls">dip40_1</video><br>
+</ol>
+<li>向导生成示范</li>
+<ol>
+<li>使用元器件向导。Tools--Component Wizard...--Next--选择”Dual In-line Packages(DIP)”--Next--修改过孔大小为35mil--Next--Next--Next--修改焊盘数为40--Next--Next--Finish。我们一般选购的DIP40的单片机的封装，即绘制完成。</li>
+<li>保存PCB库文件。</li>
+<video src="res/video/pcb_tutorial_pic6.mp4" controls="controls">dip40_2</video><br>
+编辑好的DIP40的元器件封装参考如下：<br/>
+<img src="res/pic/pcb_tutorial_pic21.png" alt="dip40_3"/><br>
+</ol>
+</ul>
+<li><b>添加原理图内其他元器件的pcb封装。</b></li>
+</ol></p>
+<hr>
+<h2 id="section-4">4.pcb文件设计</h2>
+<p><ol>
+<li><b>修改和设置原理图文件中相应元件的封装。</b>以51单片机为例：</li>
+<video src="res/video/pcb_tutorial_pic8.mp4" controls="controls">setting</video><br>
+<li><b>在工程中，新建PCB文件，并保存。</b></li>
+<video src="res/video/pcb_tutorial_pic9.mp4" controls="controls">setting</video><br>
+<li><b>更新PCB文件。</b>然后在原理图文件的主菜单中，选择"设计--Update PCB Document xxx.PcbDoc"菜单，选择更改，然后点击"生效更改"，"执行更改"按钮，更新PCB文件。</li>
+<video src="res/video/pcb_tutorial_pic10.mp4" controls="controls">setting</video><br>
+<li><b>修改元件封装</b>；并在PCB文件中，进行<b>元器件布局</b>。让后续的布线更合理简便。</li>
+<div class="alert alert-danger">
+注意：有些器件的默认封装，不是我们选用的器件，需进行修改。PCB图中的器件封装要与实际使用的器件的封装一致，以及管脚的定义和其焊盘位置一致。以免制板回来后，焊接出错。
+</div>
+<img src="res/pic/pcb_tutorial_pic11.png" alt="setting"/><br>
+<li><b>设计板子形状</b></li>
+<ol>
+<li>在<span style="background:#ff00ff;color:white;">Keep-Out Layer</span>层，绘制一个闭合的区域边框。</li>
+<div  class="alert alert-info">区域大小应尽量控制在100mm*100mm以内。</div>
+<video src="res/video/pcb_tutorial_pic12.mp4" controls="controls">setting</video><br>
+<li>按住Shift键，选中该区域边框，在菜单"设计--板子形状--按照选择对象定义"。</li>
+<img src="res/pic/pcb_tutorial_pic22.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic23.png"/><br>
+</ol>
+<li><b>布线</b>可以使用手工布线或自动布线。</li>
+<ul>
+<li>手工布线:使用Interactively Route Connections<img src="res/pic/pcb_tutorial_pic12.png"/>在<img src="res/pic/pcb_tutorial_pic13.png"/>和<img src="res/pic/pcb_tutorial_pic14.png"/>层绘制导线。</li>
+<div class="alert alert-danger">
+注意：绘图工具“走线(L)”，只是几何线段(Line)，不是真正的电线路(Wire)，没有电气特性。
+</div>
+<img src="res/pic/pcb_tutorial_pic24.png"/><br>
+<li>自动布线:使用菜单"自动布线--全部(A)...--编辑规则--Routing--Width"，设置线宽，按"确定--Route All"按钮自动布线。</li>
+<div class="alert alert-info">
+推荐线宽：<br>信号线：10mil，电源线：30mil。
+</div>
+<div class="alert alert-danger">
+警告：必须先完成板子形状的设计，才能进行自动布线，否则Altium Designer软件会崩溃。
+</div>
+<img src="res/pic/pcb_tutorial_pic25.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic26.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic27.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic28.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic29.png"/><br><br>
+<img src="res/pic/pcb_tutorial_pic30.png"/><br><br>
+</ul>
+<li><b>定位孔。</b>在PCB四个角处，放置定位孔，定位孔直径推荐3.2mm。可以选用<b>焊盘</b>或<b><span style="background:#ff00ff;color:white;">Keep-Out Layer</span>层剪切</b>2种方式。</li>
+<ul>
+<li>焊盘方式</li>
+<video src="res/video/pcb_tutorial_pic14.mp4" controls="controls">pad</video><br>
+<li><span style="background:#ff00ff;color:white;">Keep-Out Layer</span>层剪切方式</li>
+<video src="res/video/pcb_tutorial_pic15.mp4" controls="controls">cut</video><br>
+</ul>
+<li>
+<b>泪滴</b>：泪滴是焊盘与导线或者是导线与导孔之间的滴装连接过度。可使走线与元件焊盘之间的连接平稳过渡，解决了焊盘与走线之间的连接容易断裂的问题。
+</li>
+<video src="res/video/pcb_tutorial_pic16.mp4" controls="controls">drop</video><br>
+<li>当前的pcb状态，参考如图。</li>
+<img src="res/pic/pcb_tutorial_pic19.png" alt="pcb1"/><br>
+<li><b>铺铜</b>：敷铜的意义在于，减小地线阻抗，提高抗干扰能力。<b><span style="background:red;color:white;">顶层TopLayer</span></b>和<b><span style="background:blue;color:white;">底层BottomLayer</span></b>都需铺铜。</li>
+<video src="res/video/pcb_tutorial_pic17.mp4" controls="controls">gnd</video><br>
+<li><b>增加说明。</b>丝印层：增加组号、项目名称、版本号等。</li>
+<div class="alert alert-danger">注意：若为中文字符，需要设置字体为：TrueType，字体名为：宋体。</div>
+<img src="res/pic/pcb_tutorial_pic18.png" alt="des"/><br>
+<li>绘制完成的PCB图，参考如图。</li>
+<img src="res/pic/pcb_tutorial_pic20.png" alt="pcb2"/><br>
+<li>在投板前，需全面检查下原理图和pcb图。</li>
+<table class="table table-bordered">
+  <caption>PCB检查表</caption>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>检查项</th>
+	  <th>检查重点</th>
+      <th>结果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>系统模块汇总</td>
+      <td>检查是否满足系统功能要求</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>最小系统(晶振)</td>
+      <td>摆放位置是否合理</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>最小系统(复位)</td>
+      <td>RST是否接触可靠，四脚开关是否接错</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>最小系统(电源)</td>
+      <td>是否有电源输入端子</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>下载电路</td>
+      <td>根据芯片选择合适的下载接口</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>IO口</td>
+      <td>P0口如用到，建议接上拉电阻</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>器件</td>
+      <td>布局是否合理，是否有遗漏</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>走线</td>
+      <td>电源线的线宽；避免90度走线</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>泪滴</td>
+      <td></td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>铺铜</td>
+      <td></td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>定位孔</td>
+      <td></td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>丝印</td>
+      <td>建议写上项目名称等信息</td>
+	  <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>板子大小</td>
+      <td>控制在100mm*100mm内</td>
+	  <td></td>
+    </tr>
+  </tbody>
+</table>
+<li>设计完成后，可将相关设计图转换成<span style="background:#ff0000">PDF文档</span>，方便其他同学调试时，参考查阅。</li>
+<img src="res/pic/pcb_tutorial_pic31.png" alt="pcb2"/><br>
+</ol></p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=NAIBBgYFAwANdEVFGldbWQ" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+	</div>
+<div class="jdc-side" style="display: none;" id="side_div">
+  <div class="mod_hang_qrcode jdc_hang_qrcode">
+  <a class="mod_hang_qrcode_btn"></a>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod_hang_qrcode_show_bg" id="qrcode"></div>
+      <p>使用手机查看</p>
+    </div>
+  </div>
+</div>
+</body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.qrcode.min.js"></script>
+<script src="js/bdtj.js"></script>
+<script src="js/checkDevice.js"></script>
+<script src="js/commonInit.js"></script>
+</html>

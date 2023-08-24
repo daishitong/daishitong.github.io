@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Keil使用说明</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="author" content="daishitong">
+	<meta name="description" content="工程训练辅助材料，工程技术综合实践课程辅助材料">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/tutorial.css" rel="stylesheet">
+	<link href="css\jdc-side-panel.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href=".\css\highlight\vs.css">
+    <script src=".\js\highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid">
+   <div class="jumbotron">
+        <h1>Keil使用说明</h1>
+<span>
+<button id="show_all" type="button" class="btn btn-link">查看全部</button> |
+<button id="show_at" type="button" class="btn btn-link">AT系列</button> |
+<button id="show_stc" type="button" class="btn btn-link">STC系列</button>
+</span>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.新建工程</a></li>
+                <li><a href="#section-3">3.编码</a></li>
+                <li><a href="#section-4">4.连线</a></li>
+                <li><a href="#section-5">5.下载</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+<h2 id="section-0">0.说明</h2>
+<p>通过编写一个简单的程序，熟悉Keil开发环境的使用和Hex二进制文件下载。</p>
+<hr>
+<h2 id="section-1">1.准备</h2>
+<p><ol>
+<li>按《<a href="keil_install_tutorial.html" target="_blank">Keil安装说明</a>》中的步骤，安装好Keil开发环境。</li>
+<li>准备一件完整的51单片机硬件实验板及其原理图。如：《<a href="res/doc/BoeBot.pdf" target="_blank">BoeBot实验板原理图</a>》</li>
+<li>下载51单片机数据手册，以备查阅。
+<ol>
+<li id="at_1">Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51" target="_blank"
+>AT89S51产品页</a>下载《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" download="AT89S51.pdf" target="_blank"
+>AT89S51数据手册(DataSheet)</a>》。</li>
+<li id="stc_1">STC 51单片机，在<a href="http://www.stcmcu.com/" target="_blank">STC单片机官方网站</a>下载<a href="http://www.stcmcudata.com/datasheet/stc/STC-AD-PDF/STC89C51RC-RD.pdf" target="_blank">《STC89C51RC/RD+系列单片机器件手册》</a>。</li>
+</ol>
+<li id="stc_2">如果使用keil开发stc系列单片机程序，可<a href="http://www.stcisp.com/stc_add_keil.html" target="_blank">添加STC单片机型号到KEIL中</a>。
+</ol></p>
+<hr>
+<h2 id="section-2">2.新建工程</h2>
+<p><ol>
+<li>打开Keil开发环境，点击"Project--New uVision Project"。</li>
+<li>以AT89S51为例，选择主控芯片为"AT89S51"。</li>
+<li>新建文档，保存为后缀为".c"的文件。</li>
+<li>将文件添加到工程中。</li>
+<li>在"工程--Options for Target'Target1'--Output--Create Hex File"，勾选确定。</li>
+<li>点击"Build"按钮，出现"creating hex file from 'xxx'..."字样。</li>
+<video src="res/video/keil_use_tutorial_pic2.mp4" controls="controls">新建文档</video><br>
+</ol></p>
+<hr>
+<h2 id="section-3">3.编码</h2>
+<p><ol>
+<li>添加主控芯片对应的头文件，头文件中，主要包含寄存器的定义。</li>
+<li>在工程中的.c文件，添加main函数。</li>
+<li>定义管脚。</li>
+<li>在main函数中，增加无限循环语句while(1)。</li>
+<li>添加其他相关代码。</li>
+<img src="res/pic/keil_use_tutorial_pic3.png" alt="编码"/><br>
+<pre><code class="cpp hljs">#include &lt;reg52.h&gt;	// 芯片寄存器定义头文件
+
+// 延时函数，单位：ms
+void delay_nms(int ms)
+{
+    unsigned char i;
+    while((--ms) >= 0)
+    {
+        for(i = 0;i < 115;i++);
+    }
+}
+
+// LED管脚定义
+sbit Led_Pin = P2^0;
+
+// 主函数
+void main()
+{
+    while(1)   // 无限循环
+    {
+        Led_Pin = 1;        // 熄灭LED
+        delay_nms(500);     // 延时500ms
+        Led_Pin = 0;        // 点亮LED
+        delay_nms(500);     // 延时500ms
+    }
+}
+</code></pre>
+</ol></p>
+<hr>
+<h2 id="section-4">4.连线</h2>
+<p>
+    使用杜邦线，将单片机的P2.0引脚与LED控制引脚，连接在一起。<br>
+    <img src="res/pic/keil_use_tutorial_pic9.png" alt="wire"/><br>
+</p>
+<hr>
+<h2 id="section-5">5.下载</h2>
+<p><ol>
+<li>记录工程所生成的Hex二进制文件路径。也可以使用：<a href="https://github.com/daishitong/51demo/raw/master/01.Led_Blink/Objects/Led_Blink.hex" download="Led_Blink.hex" target="_blank">P2.0口LED闪烁二进制文件</a>。</li>
+<li id="type_div">不同系列的单片机，使用不同的下载方法。主要分为<a href="#stc">STC系列单片机下载方法</a>和<a href="#at">AT系列单片机下载方法</a>。</li>
+<div id="stc_div">
+<li id="stc"><a href="http://www.stcmcu.com/" target="_blank">STC系列单片机</a>使用<a href="https://pan.baidu.com/s/1jHTkwmi" target="_blank">STC-ISP软件</a>下载。</li>
+<ol>
+<li>使用PC机USB口，连接USB转TTL下载器。</li>
+<li>另一端连接单片机板串口。</li>
+<div class="alert alert-danger">注意：单片机板RXD需接下载器TXD，单片机板TXD需接下载器RXD。</div>
+<img src="res/pic/keil_use_tutorial_pic6.png" alt="at"/><br>
+<li>安装相应驱动，确保映射成一个串口。</li>
+<div class="alert alert-info">
+根据USB转串口模块的芯片型号，选择以下匹配的驱动：<br>
+<a href="https://pan.baidu.com/s/1jIicin8" target="_blank">PL2302-USB-TTL驱动</a><br>
+<a href="https://pan.baidu.com/s/1kUQznGN" target="_blank">CH340_CH341-USB-TTL驱动</a>
+</div>
+<img src="res/pic/keil_use_tutorial_pic8.png" alt="at"/><br>
+<li>打开STC-ISP软件，选择单片机型号。</li>
+<li>选择下载器的串口号。</li>
+<li>点击"打开应用程序"按钮，选择工程所生成的Hex二进制文件。</li>
+<li>点击"下载/编程"按钮。</li>
+<li>需断电重启STC单片机，才能开始下载进程。</li>
+</ol>
+<img src="res/pic/keil_use_tutorial_pic4.png" alt="编码"/><br>
+</div>
+<div id="at_div">
+<li id="at"><a href="http://www.atmel.com/products/microcontrollers/8051architecture/default.aspx?tab=documents" target="_blank">AT系列单片机</a>使用<a href="https://pan.baidu.com/s/1pKYzRaN" target="_blank">Progisp软件</a>下载。</li>
+<ol>
+<li>使用PC机USB口，连接AT系列下载器。</li>
+<li>另一端连接单片机板IDC10下载口。</li>
+<img src="res/pic/keil_use_tutorial_pic7.png" alt="at"/><br>
+<li>打开Progisp软件，选择主控芯片型号。</li>
+<li>点击"调入Flash"按钮，选择工程所生成的Hex二进制文件。</li>
+<li>确保选中"编程Flash"后，点击"自动"按钮。</li>
+</ol>
+<img src="res/pic/keil_use_tutorial_pic5.png" alt="编码"/><br>
+</ol>
+</div>
+</p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=NAIBBgYFAwANdEVFGldbWQ" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+	</div>
+<div class="jdc-side" style="display: none;" id="side_div">
+  <div class="mod_hang_qrcode jdc_hang_qrcode">
+  <a class="mod_hang_qrcode_btn"></a>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod_hang_qrcode_show_bg" id="qrcode"></div>
+      <p>使用手机查看</p>
+    </div>
+  </div>
+</div>
+</body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.qrcode.min.js"></script>
+<script src="js/bdtj.js"></script>
+<script src="js/checkDevice.js"></script>
+<script src="js/commonInit.js"></script>
+  <script type="text/javascript">
+$(document).ready(function(){
+  $("#show_all").click(function(){
+  show_all();
+  });
+  $("#show_at").click(function(){
+  stc_hide();
+  });
+  $("#show_stc").click(function(){
+  at_hide();
+  });
+});
+
+(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+})(jQuery);
+function show_all()
+{
+	$("#stc_div").show();
+	$("#stc_1").show();
+	$("#stc_2").show();
+	$("#at_div").show();
+	$("#at_1").show();
+	$("#type_div").show();
+}
+function stc_hide()
+{
+	$("#stc_div").hide();
+	$("#stc_1").hide();
+	$("#stc_2").hide();
+	$("#type_div").hide();
+	$("#at_div").show();
+	$("#at_1").show();
+};
+function at_hide()
+{
+	$("#at_div").hide();
+	$("#at_1").hide();
+	$("#type_div").hide();
+	$("#stc_div").show();
+	$("#stc_1").show();
+	$("#stc_2").show();
+};
+$(function () {
+    switch($.getUrlParam('type'))
+	{
+	case 'at':
+	stc_hide();
+	break;
+	case 'stc':
+	at_hide();
+	break;
+	}
+})
+
+</script>
+</html>

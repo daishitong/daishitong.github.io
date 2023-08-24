@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>51最小系统原理图绘制</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="author" content="daishitong">
+	<meta name="description" content="工程训练辅助材料，工程技术综合实践课程辅助材料">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/tutorial.css" rel="stylesheet">
+	<link href="css\jdc-side-panel.css" rel=stylesheet>
+	<link rel="shortcut icon" href="../favicon.ico">
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid">
+	<div class="jumbotron">
+		 <h1>51最小系统原理图绘制</h1>
+	 </div>
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+				<li class="active"><a href="#section-0">0.说明</a></li>
+                <li><a href="#section-1">1.准备</a></li>
+                <li><a href="#section-2">2.绘制元件库</a></li>
+                <li><a href="#section-3">3.绘制原理图</a></li>
+				<li><a href="index.html"><<<返回</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+			<h2 id="section-0">0.说明</h2>
+            <p>通过绘制51系列单片机最小系统原理图，了解Altium Designer的使用方法和操作步骤。</p>
+            <hr>
+            <h2 id="section-1">1.准备</h2>
+            <p>1.按《<a href="altium_designer_install_tutorial.html" target="_blank"
+>Altium Designer安装说明</a>》中的步骤，安装好Altium Designer。</p><p>
+			2.下载51单片机数据手册，推荐Atmel 51单片机，在<a href="http://www.microchip.com/wwwproducts/en/AT89S51" target="_blank"
+>AT89S51产品页</a>下载《<a href ="http://ww1.microchip.com/downloads/en/DeviceDoc/doc2487.pdf" download="AT89S51.pdf" target="_blank"
+>AT89S51数据手册(DataSheet)</a>》，以备查阅。</p><p>
+3.<a href="http://c.biancheng.net/cpp/html/1856.html" target="_blank">单片机最小系统</a>，也叫做单片机最小应用系统，是指用最少的元件组成单片机可以工作的系统。单片机最小系统的三要素就是电源、晶振、复位电路。</p>
+            <hr>
+            <h2 id="section-2">2.绘制元件库</h2>
+            <p><ol><li><b>打开Altium Designer 软件；</b></li>
+			<li><b>新建pcb工程</b>，点击File--New--Project--PCB Project;</li>
+			<li><b>添加原理图库</b>，点击File--New--Library--Schematic Library；</li>
+			<li><b>保存全部</b>，点击File-Save All。</li>
+			<video src="res/video/sch_tutorial_pic1.mp4" controls="controls">新建文档</video><br>
+			<li><b>切换视图到元件库。</b></li>
+			<img src="res/pic/sch_tutorial_pic2.png" alt="切换"/><br>
+			<li><b>新建元器件</b>，点击Tool--Rename Component，将名称命名为8951;</li>
+			<li><b>放置元器件框图</b>，点击Place--Rectangle，放置一个矩形。</li>
+			<video src="res/video/sch_tutorial_pic3.mp4" controls="controls">新建元器件</video><br>
+			<li>参考51单片机数据手册，关于管脚配置(Pin Configurations)的信息。<b>记录单片机[管脚名称]和[管脚号]。</b></li>
+			<img src="res/pic/sch_tutorial_pic4.png" alt="数据手册"/><br>
+			<li>点击Place Pin，<b>放置引脚</b>。</li>
+			<div class="alert alert-info">Tips:<br>1.名称字母上方若需上划线，则在字母后加字符“\”。<br>
+			2.快捷键：选中引脚，按住鼠标左键，再按键盘键：<br/>空格键--将选中的物体逆时针旋转90°;X--放置元件时，左右翻转；Y--放置元件时，上下翻转。<br>
+			3.选中引脚，按Tab键，弹出属性对话框，可编辑[显示名字]和[标识]等，[显示名称]修改为[管脚名称]，[标识]修改为[管脚号]。</div>
+			<video src="res/video/sch_tutorial_pic5.mp4" controls="controls">引脚</video><br>
+			<li><b>设置属性</b>，点击Tool--Component Properties...，设置默认位号为U?,默认描述为8951。</li>
+			<video src="res/video/sch_tutorial_pic6.mp4" controls="controls">属性</video><br>
+			<li>打开库视图，点击View--Workspace panels--System--Libraries。可以看到已经绘制的51单片机元件图，参考如下。</li>
+			<img src="res/pic/sch_tutorial_pic11.png" alt="元件图"/><br>
+			</ol></p>
+            <hr>
+            <h2 id="section-3">3.绘制原理图</h2>
+            <p><ol><li><b>添加原理图文件</b>。点击File--New--Schematic;</li>
+			<li>在Library视图中，<b>将刚才绘制的51单片机元件图，拖放到原理图中。</b></li>
+			<video src="res/video/sch_tutorial_pic7.mp4" controls="controls">原理图</video><br>
+			<li><b>摆放好51最小系统所需其他元器件。</b></li>
+			<div class="alert alert-info">一些常用的元器件，已保存在系统元件库中：<br>i.电阻：Miscellaneous Devices.IntLib -- Res1<br>ii.电容：Miscellaneous Devices.IntLib -- Cap<br>iii.晶振：Miscellaneous Devices.IntLib -- XTAL<br>iv.Led：Miscellaneous Devices.IntLib -- LED0</div>
+			<li>点击Place -- Wire，<b>使用网络标号，接线</b>。</li>
+			<div class="alert alert-info">网络标号(Net Label)是一个电气连接点，具有相同网络标号的电气连接线、管脚是连接在一起的。</div>
+			<video src="res/video/sch_tutorial_pic8.mp4" controls="controls">接线</video><br>
+			<li>在两条连接线实际连接的情况下，需<b>检查并放置手工接点</b>。</li>
+			<video src="res/video/sch_tutorial_pic10.mp4" controls="controls">接点</video><br>
+			<li><b>修改器件数值</b>。</li>
+			<img src="res/pic/sch_tutorial_pic12.png" alt="数值"/><br>
+			<li><b>标注标号</b>。可选择自动标注：点击Tools--Annotate Schematics--Update Changes List--Accept Changes(Create ECO)--Execute Changes--Close。</li>
+			<video src="res/video/sch_tutorial_pic9.mp4" controls="controls">标注</video><br>
+			<li><b>完善原理图</b>，如直流电源插座、下载电路等。最小系统的原理图部分绘制完成，参考如下。</li>
+			<img src="res/pic/sch_tutorial_pic10.png" alt="原理图"/><br>
+			</ol></p>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="copyright" align="center">
+     Copyright &copy; <a href="http://daishitong.github.io">dst</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=65221749&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:65221749:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=NAIBBgYFAwANdEVFGldbWQ" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+	</div>
+<div class="jdc-side" style="display: none;" id="side_div">
+  <div class="mod_hang_qrcode jdc_hang_qrcode">
+  <a class="mod_hang_qrcode_btn"></a>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod_hang_qrcode_show_bg" id="qrcode"></div>
+      <p>使用手机查看</p>
+    </div>
+  </div>
+</div>
+</body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.qrcode.min.js"></script>
+<script src="js/bdtj.js"></script>
+<script src="js/checkDevice.js"></script>
+<script src="js/commonInit.js"></script>
+</html>

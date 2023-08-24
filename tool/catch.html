@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>我在接人</title>
+		<link rel="shortcut icon" href="../favicon.ico">
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#myDiv {
+    width: 100%;
+    height: 100%;
+    background-color:red;
+    text-align:center;
+    font-size:40em;
+    color:#fff;
+}
+</style>
+	</head>
+
+<body>
+    <div id="myDiv">在这</div>
+</body>
+	<script type="text/javascript">
+	var index = 0;
+	var colorList = new Array("red","green","blue","yellow");
+	function updateTime()
+	{
+		d=document.getElementById('myDiv');
+		d.style.background=colorList[index++];
+		if(index >= 4)index = 0;
+	}
+
+window.onload=function(){
+	updateTime();
+	setInterval(updateTime,300);
+}
+	</script>
+</html>
